@@ -1,2 +1,2 @@
 # opsmap
-Operations Map
+Map of runnable interdependent operations

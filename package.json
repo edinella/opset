@@ -1,0 +1,15 @@
+{
+  "name": "opsmap",
+  "version": "0.0.0",
+  "description": "Map of runnable interdependent operations",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/edinella/opsmap.git"
+  },
+  "author": "Ezequias Dinella <ezequias.net@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/edinella/opsmap/issues"
+  },
+  "homepage": "https://github.com/edinella/opsmap"
+}
