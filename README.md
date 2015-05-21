@@ -96,8 +96,3 @@ myStats.fail(function(err) {
   console.error(err);
 });
 ```
-
-### Inspiration
-[Angular.js DI](http://docs.angularjs.org/guide/di)
-
-[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/b05323c0f01a424058eff9ee1e6cce63 "githalytics.com")](http://githalytics.com/edinella/opsmap)
