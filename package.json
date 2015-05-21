@@ -3,7 +3,7 @@
   "description": "Map of runnable interdependent operations",
   "author": "Ezequias Dinella <ezequias.net@gmail.com>",
   "repository": "git://github.com/edinella/opsmap.git",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "license": "MIT",
   "main": "lib/OpsMap.js",
   "dependencies": {
