@@ -1,15 +1,46 @@
 {
   "name": "opsmap",
-  "version": "0.0.0",
   "description": "Map of runnable interdependent operations",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/edinella/opsmap.git"
-  },
   "author": "Ezequias Dinella <ezequias.net@gmail.com>",
+  "repository": "git://github.com/edinella/opsmap.git",
+  "version": "0.0.0",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/edinella/opsmap/issues"
+  "main": "lib/OpsMap.js",
+  "dependencies": {
+    "debug": "^2.2.0",
+    "lodash": "^3.9.1",
+    "q": "^1.4.1",
+    "util": "^0.10.3"
   },
-  "homepage": "https://github.com/edinella/opsmap"
+  "keywords": [
+    "async",
+    "chain",
+    "component",
+    "componentization",
+    "container",
+    "control",
+    "controller",
+    "dependency graph",
+    "dependency injection",
+    "dependency management",
+    "dependency",
+    "di container",
+    "di",
+    "graph",
+    "injection",
+    "injector",
+    "inversion of control",
+    "ioc container",
+    "ioc",
+    "modular",
+    "modularization",
+    "module",
+    "operations",
+    "ops",
+    "promise",
+    "promises",
+    "resolve",
+    "resolver",
+    "structure",
+  ]
 }
