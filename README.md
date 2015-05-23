@@ -1,17 +1,17 @@
-# opsmap [![Build Status](https://travis-ci.org/edinella/opsmap.png?branch=master)](https://travis-ci.org/edinella/opsmap) [![Code Climate](https://codeclimate.com/github/edinella/opsmap.png)](https://codeclimate.com/github/edinella/opsmap)
-Map of runnable interdependent operations
+# opset [![Build Status](https://travis-ci.org/edinella/opset.png?branch=master)](https://travis-ci.org/edinella/opset) [![Code Climate](https://codeclimate.com/github/edinella/opset.png)](https://codeclimate.com/github/edinella/opset)
+Set of runnable interdependent operations
 
-[![NPM](https://nodei.co/npm/opsmap.png)](https://npmjs.org/package/opsmap)
+[![NPM](https://nodei.co/npm/opset.png)](https://npmjs.org/package/opset)
 
 ## Example
 
 ```js
-var OpsMap = require('opsmap');
+var OpSet = require('opset');
 var UserModel = require('./models/user.js');
 var BlogModel = require('./models/blog.js');
 
-// declare map of interdependent operations
-var blog = new OpsMap('blog');
+// declare set of interdependent operations
+var blog = new OpSet('blog');
 
 blog.set('username', 'edinella'); // already resolved values can be setted
 
@@ -40,25 +40,26 @@ function nope(err) {
 ## How to use
 Install with NPM:
 ```sh
-npm install --save opsmap
+npm install --save opset
 ```
 
 Then require it:
 ```js
-var OpsMap = require('opsmap');
+var OpSet = require('opset');
 ```
 
 ## API
 
-**constructor(alias)**: create a new OpsMap with an alias
+**OpSet(alias)**: constructor, create a new OpSet with an alias
 
-To produce the instance, `OpsMap` should be called with `new` operator.
+To produce the instance, `OpSet` should be called with `new` operator.
 
 ```js
-var report = new OpsMap('report');
+var report = new OpSet('report');
 ```
 
-**set(token, value)**: defines a value for injection (alias: setCache)
+**set(token, value)**: alias for setCache()
+**setCache(token, value)**: defines a resolved value for injection
 
 Register the final value.
 
@@ -66,7 +67,8 @@ Register the final value.
 report.set('dateFormat', 'DD/MM/YYYY HH:mm:ss');
 ```
 
-**op(token, factoryFn)**: defines a operation that generates a value for injection (alias: operation)
+**op(token, factoryFn)**: alias for operation()
+**operation(token, factoryFn)**: defines a operation that generates a value for injection
 
 To produce the instance, `factoryFn` will be called once (with instance context) and its result will be used.
 

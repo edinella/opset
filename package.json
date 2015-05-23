@@ -1,16 +1,15 @@
 {
-  "name": "opsmap",
-  "description": "Map of runnable interdependent operations",
+  "name": "opset",
+  "description": "Set of runnable interdependent operations",
   "author": "Ezequias Dinella <ezequias.net@gmail.com>",
-  "repository": "git://github.com/edinella/opsmap.git",
-  "version": "0.1.1",
+  "repository": "git://github.com/edinella/opset.git",
+  "version": "1.0.0",
   "license": "MIT",
-  "main": "lib/OpsMap.js",
+  "main": "lib/OpSet.js",
   "dependencies": {
     "debug": "^2.2.0",
     "lodash": "^3.9.1",
-    "q": "^1.4.1",
-    "util": "^0.10.3"
+    "q": "^1.4.1"
   },
   "keywords": [
     "async",
