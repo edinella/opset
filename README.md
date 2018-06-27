@@ -6,12 +6,13 @@ Set of runnable interdependent operations
 ## Example
 
 ```js
-var OpSet = require('opset');
-var UserModel = require('./models/user.js');
-var BlogModel = require('./models/blog.js');
+const OpSet = require('opset');
+const UserModel = require('./models/user.js');
+const BlogModel = require('./models/blog.js');
+const CommentModel = require('./models/comment.js');
 
 // declare set of interdependent operations
-var blog = new OpSet('blog');
+const blog = new OpSet('blog');
 
 blog.set('username', 'edinella'); // already resolved values can be setted
 
@@ -19,8 +20,22 @@ blog.op('user', function() {
   return UserModel.findOne({username: 'edinella'}).exec(); // returns a promise
 });
 
-blog.op('userPosts', function(user) {
-  return BlogModel.find({author: user.id}).exec();
+// Async functions are supported too!
+blog.op('userPosts', async function(user) {
+  let posts = await BlogModel.find({author: user.id}).exec();
+  return Promise.all(posts.map(async p => {
+    try {
+      let comments = await CommentModel.find({post: p._id}).lean().exec();
+
+      if (comments) {
+        p.comments = comments;
+      }
+
+      return p;
+    } catch (e) {
+      console.error(e);
+    }
+  }));
 });
 
 // run userPosts operation, returns a promise
@@ -45,7 +60,7 @@ npm install --save opset
 
 Then require it:
 ```js
-var OpSet = require('opset');
+const OpSet = require('opset');
 ```
 
 ## API
@@ -55,7 +70,7 @@ var OpSet = require('opset');
 To produce the instance, `OpSet` should be called with `new` operator.
 
 ```js
-var report = new OpSet('report');
+const report = new OpSet('report');
 ```
 
 **set(token, value)**: alias for setCache()
@@ -86,7 +101,7 @@ If any operation throws an error or gets rejected, and you omit the rejection ha
 
 ```js
 // result is a promise
-var myStats = report.run('stats');
+let myStats = report.run('stats');
 
 // handle results
 myStats.then(function(result) {
